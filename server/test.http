@@ -1,0 +1,11 @@
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+    "fullName": "Awudu Muf Bakari",
+  "program": "BSc. Information Technology",
+  "level": 300,
+  "constituency": "Tatale-Sanguli",
+  "phone": 553481711
+  
+}
