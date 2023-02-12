@@ -61,4 +61,6 @@ router.get("/registered", async (req, res) => {
   }
 });
 
+router.get("/", (req, res)=>res.send("Testing app"))
+
 module.exports = router;
