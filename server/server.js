@@ -12,7 +12,7 @@ require("./models/registerModels");
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true })
+  .connect(DATABASE_ACCESS, { useNewUrlParser: true })
   .then(() => console.log("Database connected"))
   .catch((err) => {
     console.log(err);
@@ -20,7 +20,7 @@ mongoose
 
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:400", "https://teinuenr.onrender.com"]
+  origin: ["http://localhost:400", "https://tein-uenr-api.onrender.com"]
 }));
 app.use("/", routesUrls);
 
