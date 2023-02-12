@@ -12,7 +12,7 @@ require("./models/registerModels");
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(DATABASE_ACCESS, { useNewUrlParser: true })
+  .connect(process.env.DATABASE_ACCESS, { useNewUrlParser: true })
   .then(() => console.log("Database connected"))
   .catch((err) => {
     console.log(err);
