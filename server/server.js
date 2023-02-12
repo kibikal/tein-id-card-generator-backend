@@ -20,7 +20,7 @@ mongoose
 
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:400", "https://teinuenr.onrender.com"]
+  origin: ["http://localhost:400", "https://tein-uenr-api.onrender.com"]
 }));
 app.use("/", routesUrls);
 
