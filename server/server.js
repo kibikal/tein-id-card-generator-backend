@@ -18,11 +18,11 @@ mongoose
     console.log(err);
   });
 
-  console.log(process.env.DATABASE_ACCESS)
+  console.log(process.env.DATABASE_ACCESS);
 
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:400", "https://tein-uenr-api.onrender.com"]
+  origin: "*"
 }));
 app.use("/", routesUrls);
 
