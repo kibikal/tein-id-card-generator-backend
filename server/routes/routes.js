@@ -1,5 +1,5 @@
 const express = require("express");
-const { default: mongoose } = require("mongoose");
+const  mongoose  = require("mongoose");
 
 const router = express.Router();
 const registrantTemplateCopy = require("../models/registerModels");
@@ -45,7 +45,7 @@ router.post("/register", (req, res) => {
           res.json(data);
         })
         .catch((error) => {
-          res.json(error);
+          console.log(error);
         });
 
     }
