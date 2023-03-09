@@ -36,7 +36,9 @@ router.post("/register", (req, res) => {
         membershipNumber: yearOfRegistration + idToFourSf(seqId),
         constituency: req.body.constituency,
         phone: req.body.phone,
-        dateOfJoining: moment(req.body.dateOfJoining).utc().format("DD/MM/YYYY"),
+        dateOfJoining: moment(req.body.dateOfJoining)
+          .utc()
+          .format("DD/MM/YYYY"),
         passportPhoto: req.body.passportPhoto,
       });
 
