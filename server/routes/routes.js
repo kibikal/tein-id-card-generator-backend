@@ -1,5 +1,6 @@
 const express = require("express");
-const  mongoose  = require("mongoose");
+const mongoose = require("mongoose");
+const moment = require("moment");
 
 const router = express.Router();
 const registrantTemplateCopy = require("../models/registerModels");
@@ -8,7 +9,7 @@ const newIdTemplateCopy = require("../models/memberIdModels");
 const registeredMember = mongoose.model("registeredMembers");
 const yearOfRegistration = new Date().getFullYear().toString();
 
-function idToFourSf(id){
+function idToFourSf(id) {
   let zeroes = new Array(4 + 1).join("0");
   return (zeroes + id).slice(-4);
 }
@@ -35,7 +36,7 @@ router.post("/register", (req, res) => {
         membershipNumber: yearOfRegistration + idToFourSf(seqId),
         constituency: req.body.constituency,
         phone: req.body.phone,
-        dateOfJoining: req.body.dateOfJoining,
+        dateOfJoining: moment(req.body.dateOfJoining).utc().format("DD/MM/YYYY"),
         passportPhoto: req.body.passportPhoto,
       });
 
@@ -47,7 +48,6 @@ router.post("/register", (req, res) => {
         .catch((error) => {
           console.log(error);
         });
-
     }
   );
 });
@@ -61,6 +61,6 @@ router.get("/registered", async (req, res) => {
   }
 });
 
-router.get("/",(req,res)=>res.send("Testing!"))
+router.get("/", (req, res) => res.send("Testing!"));
 
 module.exports = router;
