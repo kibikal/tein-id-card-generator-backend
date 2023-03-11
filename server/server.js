@@ -8,7 +8,6 @@ const cors = require("cors");
 
 const app = express();
 dotenv.config();
-console.log(moment("2023-03-18T00:00:00.000Z").utc().format('DD/MM/YYYY'));
 require("./models/registerModels");
 
 mongoose.set("strictQuery", false);

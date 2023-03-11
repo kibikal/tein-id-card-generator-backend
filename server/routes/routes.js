@@ -9,6 +9,8 @@ const newIdTemplateCopy = require("../models/memberIdModels");
 const registeredMember = mongoose.model("registeredMembers");
 const yearOfRegistration = new Date().getFullYear().toString();
 
+console.log(moment("2023-03-25T00:00:00.000Z").format("LL"));
+
 function idToFourSf(id) {
   let zeroes = new Array(4 + 1).join("0");
   return (zeroes + id).slice(-4);
@@ -36,7 +38,7 @@ router.post("/register", (req, res) => {
         membershipNumber: yearOfRegistration + idToFourSf(seqId),
         constituency: req.body.constituency,
         phone: req.body.phone,
-        dateOfJoining: moment(req.body.dateOfJoining).format("LL"),
+        dateOfJoining: req.body.dateOfJoining,
         passportPhoto: req.body.passportPhoto,
       });
 
